@@ -35,4 +35,3 @@ installOSB:
         chmod +x ./svcat
         mv ./svcat /usr/local/bin/
         svcat version --client
-
