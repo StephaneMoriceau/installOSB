@@ -28,7 +28,7 @@ installOSB:
       name: "Add the Kubernetes Service Catalog helm repository"
       code: helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
       
-  -script:
+  - script:
       name: "Install svcat tool"
       code: |
         curl -sLO https://download.svcat.sh/cli/latest/linux/amd64/svcat
