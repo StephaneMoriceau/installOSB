@@ -1,12 +1,19 @@
 installOSB:
   box:
-      id: alpine
-      cmd: /bin/sh
+      id: openjdk:10
+      ports:
+        - 8080
+        
   steps:
   - bash-template
   
   - script:
-      name: "Visualise Kubernetes config"
-      code: ps -al
+      name: "Visualise directory"
+      code: ls -al
+      
+  - script:
+      name: "Add the Kubernetes Service Catalog helm repository"
+      cmd: helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
+      
   
   
