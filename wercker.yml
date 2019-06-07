@@ -8,6 +8,10 @@ installOSB:
   - bash-template
   
   - script:
+      name: "Check linux version"
+      code: cat /etc/os-release
+  
+  - script:
       name: "Visualise directory"
       code: ls -al
       
