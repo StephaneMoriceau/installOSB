@@ -18,6 +18,7 @@ installOSB:
          curl https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz  | tar zxv -C helm
          mv helm/linux-amd64/helm /usr/local/bin/helm
          helm version --client
+         helm init --client-only
       
   - script:
       name: "Add the Kubernetes Service Catalog helm repository"
