@@ -1,1 +1,12 @@
-
+installOSB:
+  box:
+      id: alpine
+      cmd: /bin/sh
+  steps:
+  - bash-template
+  
+  - script:
+      name: "Visualise Kubernetes config"
+      code: ps -al
+  
+  
