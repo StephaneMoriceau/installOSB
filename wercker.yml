@@ -30,7 +30,10 @@ installOSB:
       
   - script:
       name: "Install the Kubernetes Service Catalog helm chart"
-      code: helm install svc-cat/catalog --namespace stm --timeout 300 --name catalog
+      code: |
+        cat $CONFIG > ~/.kube/config
+        cat ~/.kube/config
+        helm install svc-cat/catalog --namespace stm --timeout 300 --name catalog
       
   - script:
       name: "Install svcat tool"
@@ -39,3 +42,4 @@ installOSB:
         chmod +x ./svcat
         mv ./svcat /usr/local/bin/
         svcat version --client
+        
