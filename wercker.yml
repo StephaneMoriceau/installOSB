@@ -31,6 +31,10 @@ installOSB:
   - script:
       name: "Install the Kubernetes Service Catalog helm chart"
       code: |
+        cat $CONFIG
+        echo mdir .kube
+        mkdir .kube
+        echo copy config
         cat $CONFIG > ~/.kube/config
         cat ~/.kube/config
         helm install svc-cat/catalog --namespace stm --timeout 300 --name catalog
