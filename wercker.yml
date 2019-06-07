@@ -14,6 +14,8 @@ installOSB:
   - script:
       name: "Add the Kubernetes Service Catalog helm repository"
       cmd: helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
+      cmd: helm install svc-cat/catalog --timeout 300 --name catalog
+      cmd: echo "Bonjour Minami :)"
       
   
   
