@@ -21,4 +21,4 @@ installOSB:
       
    - script:
       name: "Dis Bonjour"
-      code: echo Bonjour Minami :
+      code: echo Bonjour Minami
