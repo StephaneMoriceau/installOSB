@@ -17,6 +17,7 @@ installOSB:
       name: install envsubst
       code: |
        yum -y install gettext which tar curl gzip
+       which kubectl
   
   - script:
       name: "Visualise directory"
