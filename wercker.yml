@@ -13,9 +13,9 @@ installOSB:
       name: "Check linux version"
       code: cat /etc/os-release
       
- - script: 
-     name: install envsubst
-     code: |
+  - script:
+      name: install envsubst
+      code: |
        yum -y install gettext which tar curl gzip
   
   - script:
@@ -23,8 +23,8 @@ installOSB:
       code: ls -al
       
   - script:
-       name: helm install
-       code: |
+      name: helm install
+      code: |
          mkdir -p helm
          curl https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz  | tar zxv -C helm
          mv helm/linux-amd64/helm /usr/local/bin/helm
