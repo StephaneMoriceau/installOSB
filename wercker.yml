@@ -28,7 +28,7 @@ installOSB:
       certificate-authority: $CERTIFICATE_AUTHORITY
       cluster-name: $CLUSTER_NAME
       context-name: $CONTEXT_NAME
-      release-namespace:$NAMESPACE
+      release-namespace: $NAMESPACE
       release-name: catalog
       repo: svc-cat
       chart-name: catalog
