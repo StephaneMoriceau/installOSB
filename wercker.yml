@@ -12,44 +12,26 @@ installOSB:
   - script:
       name: "Check linux version"
       code: cat /etc/os-release
-      
-  - script:
-      name: install envsubst
-      code: |
-       yum -y install gettext which tar curl gzip
-       
-  - script:
-      name: config
-      code: |
-        export KUBERNETES_VERSION="1.10.5"
-        export KUBERNETES_SHA256="da9d557989a0b9671a610f21642052febb8f70c3cf144c98a8a4f7ecab6bafe2"
-        echo "Installing version $KUBERNETES_VERSION of kubernetes"
-        
-  - script:
-      name: fetch kubernetes archive
-      code: |
-        curl -L https://dl.k8s.io/v${KUBERNETES_VERSION}/kubernetes-client-linux-amd64.tar.gz > kubernetes-client-linux-amd64.tar.gz
-        sha256sum kubernetes-client-linux-amd64.tar.gz | grep -q "$KUBERNETES_SHA256"
-        tar xvzf kubernetes-client-linux-amd64.tar.gz
-        kubernetes/client/bin/kubectl version --client
-        which kubectl
   
   - script:
       name: "Visualise directory"
       code: ls -al
       
   - script:
-      name: helm install
-      code: |
-         mkdir -p helm
-         curl https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz  | tar zxv -C helm
-         mv helm/linux-amd64/helm /usr/local/bin/helm
-         helm version --client
-         helm init --client-only
-      
-  - script:
       name: "Add the Kubernetes Service Catalog helm repository"
       code: helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
+      
+  - stephanemo/helm
+      token: $TOKEN
+      username: $USERNAME
+      server: $SERVER
+      certificate-authority: $CERTIFICATE_AUTHORITY
+      cluster-name: $CLUSTER_NAME
+      context-name: $CONTECT_NAME
+      release-namespace:$NAMESPACE
+      release-name: catalog
+      repo: svc-cat
+      chart-name: catalog
       
  # - script:
  #     name: "Install the Kubernetes Service Catalog helm chart"
