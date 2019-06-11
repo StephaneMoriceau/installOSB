@@ -21,7 +21,7 @@ installOSB:
       name: "Add the Kubernetes Service Catalog helm repository"
       code: helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
       
-  - stephanemo/helm
+  - stephanemo/helm:
       token: $TOKEN
       username: $USERNAME
       server: $SERVER
