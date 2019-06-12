@@ -48,9 +48,8 @@ installOSB:
   - script:
       name: Connecting to the Cluster as specified in kubeconfig  
       code: |
-        cp "kubernetes/client/bin/kubectl" "/usr/local/bin/helm" "/usr/bin/envsubst" "config" "wercker.yml" "$WERCKER_OUTPUT_DIR"
         mkdir -p $HOME/.kube
-        $WERCKER_STEP_ROOT/envsubst < "$WERCKER_STEP_ROOT/config" > "$HOME/.kube/config"
+        $WERCKER_ROOT/envsubst < "$WERCKER_ROOT/config" > "$HOME/.kube/config"
         $kubectl cluster-info --kubeconfig $HOME/.kube/config
       
 
