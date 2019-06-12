@@ -36,14 +36,7 @@ installOSB:
          sha256sum kubernetes-client-linux-amd64.tar.gz | grep -q "$KUBERNETES_SHA256"
          tar xvzf kubernetes-client-linux-amd64.tar.gz
          kubernetes/client/bin/kubectl version --client
-      
-  - script:
-      name: Connecting to the Cluster as specified in kubeconfig  
-      code: |
-        mkdir -p $HOME/.kube
-        $WERCKER_STEP_ROOT/envsubst < "$WERCKER_STEP_ROOT/config" > "$HOME/.kube/config"
-        $kubectl cluster-info --kubeconfig $HOME/.kube/config
-      
+
   - script:
       name: helm install
       code: |
@@ -51,6 +44,16 @@ installOSB:
         curl https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz  | tar zxv -C helm
         mv helm/linux-amd64/helm /usr/local/bin/helm
         helm version --client
+        
+  - script:
+      name: Connecting to the Cluster as specified in kubeconfig  
+      code: |
+        cp "kubernetes/client/bin/kubectl" "/usr/local/bin/helm" "/usr/bin/envsubst" "config" "wercker.yml" "$WERCKER_OUTPUT_DIR"
+        mkdir -p $HOME/.kube
+        $WERCKER_STEP_ROOT/envsubst < "$WERCKER_STEP_ROOT/config" > "$HOME/.kube/config"
+        $kubectl cluster-info --kubeconfig $HOME/.kube/config
+      
+
       
   #- script:
   #    name: "Add the Kubernetes Service Catalog helm repository"
