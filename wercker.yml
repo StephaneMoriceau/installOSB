@@ -30,6 +30,7 @@ installOSB:
   #    code: helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
       
   - stephanemo/helm:
+      command: install
       token: $TOKEN
       username: $USERNAME
       server: $SERVER
