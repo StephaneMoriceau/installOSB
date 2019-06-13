@@ -49,11 +49,11 @@ installOSB:
   - script:
       name: Connecting to the Cluster as specified in kubeconfig  
       code: |
-        mkdir -p $HOME/.kube
-        /usr/bin/envsubst < "config" > "$HOME/.kube/config"
+        mkdir -p .kube
+        /usr/bin/envsubst < "config" > ".kube/config"
         ls -al
-        cat $HOME/.kube/config
-        kubernetes/client/bin/kubectl cluster-info --kubeconfig $HOME/.kube/config
+        cat .kube/config
+        kubernetes/client/bin/kubectl cluster-info --kubeconfig .kube/config
       
 
       
