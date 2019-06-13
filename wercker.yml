@@ -79,7 +79,7 @@ installOSB:
       code: |
         ls -al
         cat .kube/config
-        helm install svc-cat/catalog --namespace stm --timeout 300 --name catalog
+        helm install svc-cat/catalog --namespace stm --timeout 300 --name catalog --kubeconfig .kube/config
       
  # - script:
  #     name: "Install svcat tool"
