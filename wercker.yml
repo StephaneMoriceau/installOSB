@@ -50,7 +50,7 @@ installOSB:
       name: Connecting to the Cluster as specified in kubeconfig  
       code: |
         mkdir -p $HOME/.kube
-        $WERCKER_ROOT/envsubst < "$WERCKER_ROOT/config" > "$HOME/.kube/config"
+        /usr/bin/envsubst < "$WERCKER_ROOT/config" > "$HOME/.kube/config"
         $kubectl cluster-info --kubeconfig $HOME/.kube/config
       
 
