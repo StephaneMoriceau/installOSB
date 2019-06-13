@@ -21,6 +21,7 @@ installOSB:
       name: install envsubst
       code: |
         yum -y install gettext which tar curl gzip
+        whgich envsubst
         
   - script:
       name: config
