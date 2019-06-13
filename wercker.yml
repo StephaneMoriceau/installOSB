@@ -57,7 +57,9 @@ installOSB:
       
   - script:
       name: "Add the Kubernetes Service Catalog helm repository"
-      code: helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
+      code: |
+        helm init --client-only
+        helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
       
   - script:
       name: "Install the Kubernetes Service Catalog helm chart"
