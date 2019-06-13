@@ -51,7 +51,7 @@ installOSB:
       code: |
         mkdir -p $HOME/.kube
         /usr/bin/envsubst < "$WERCKER_ROOT/config" > "$HOME/.kube/config"
-        $kubectl cluster-info --kubeconfig $HOME/.kube/config
+        $kubernetes/client/bin/kubectl cluster-info --kubeconfig $HOME/.kube/config
       
 
       
