@@ -68,11 +68,11 @@ installOSB:
         cat .kube/config
         helm install svc-cat/catalog --namespace stm --timeout 300 --name catalog --kubeconfig .kube/config
       
- # - script:
- #     name: "Install svcat tool"
- #    code: |
- #       curl -sLO https://download.svcat.sh/cli/latest/linux/amd64/svcat
- #       chmod +x ./svcat
- #       mv ./svcat /usr/local/bin/
- #       svcat version --client
+  - script:
+      name: "Install svcat tool"
+      code: |
+        curl -sLO https://download.svcat.sh/cli/latest/linux/amd64/svcat
+        chmod +x ./svcat
+        mv ./svcat /usr/local/bin/
+        svcat version --client
         
